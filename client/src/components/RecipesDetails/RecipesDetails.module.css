@@ -1,0 +1,108 @@
+.detailContainer {
+    background-color: #a9a6aa94;
+    margin: 10px;
+    padding: 5px;
+
+}
+
+
+.divimg{
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.detailImg{
+    width: 460px;
+    object-fit: cover;
+}
+
+.ddsh{
+    display: flex;
+    justify-content: center;
+}
+
+.ddshh{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    left: 20px;
+    bottom:20rem;
+    text-transform: uppercase;
+}
+.dietcontainer{
+    padding: 3rem;
+    margin: 1rem;
+    border: 2px solid;
+ 
+}
+
+.stepContainer{
+    display:flex;
+    justify-content: center;
+    padding: 1.4rem;
+    margin: 4px;
+    border: 2px solid;
+    
+}
+
+.steps{
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.scores{
+    padding-bottom: 3rem;
+}
+span{
+    background: rgb(136, 53, 53);
+    border-radius: 18px;
+    padding: 3px;
+    margin: 2rem;
+}
+h3{
+    font-size: 16px;
+}
+
+.text{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    text-transform: uppercase;
+}
+
+.texts{
+    background: rgb(136, 53, 53);
+    border-radius: 18px;
+    padding: 3px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+}
+
+.dishesanddiets{
+    border-bottom: 2px solid rgb(252, 234, 234);
+    margin: 2rem;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.textsss{
+    padding-top: 2rem;
+   
+}
+.summary{
+    margin-left: 1rem;
+    height: 50%;
+
+}
+
+/* ///////// */
+
+.backButton{
+    background: rgb(34, 31, 31);
+    color: wheat;
+    padding: 5px;
+  position: absolute;
+  top: 5px;
+ 
+}

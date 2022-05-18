@@ -1,0 +1,9 @@
+.flexi{
+    display: flex;
+    margin: 1rem;
+    
+}
+
+select{
+    margin: 1rem;
+}

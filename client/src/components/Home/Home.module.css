@@ -1,0 +1,37 @@
+div .flex{    
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1rem;
+    place-items: center;
+    place-content: center;
+    
+}
+
+.refres{
+    display: flex;
+    justify-content: center;
+}
+.btn span{
+    font-size: 14px;
+}
+.btn{
+    
+    font-size: 40px;
+    color: rgba(245, 222, 179, 0.61);
+}
+
+.conteiner{
+    width: 90%;
+    max-width: 120rem;
+    margin: 1px auto;
+}
+
+.options{
+    display:flex;
+    justify-content: center;
+}
+
+.na{
+    font-size:18px;
+    color: rgba(214, 195, 159, 0.623);
+}

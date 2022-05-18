@@ -1,0 +1,22 @@
+.formu{
+    display: flex;
+    justify-content: center;
+    margin: 2rem
+
+}
+
+.formu input{
+    border: none;
+    outline: none;
+    padding: 5px 22px;
+}
+
+.inputButton {
+    background-color: #26A69A;
+    color: #fff;
+    cursor: pointer
+}
+
+.inputButton:hover {
+    background-color: #0f6d64;
+}
