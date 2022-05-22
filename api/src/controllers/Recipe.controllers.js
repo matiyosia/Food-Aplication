@@ -88,7 +88,7 @@ const getIdRecipe = async (req,res)=>{
         const { id } = req.params;
         const filId = await allRecipes(id)
         if(id){
-                const busqueda = filId.filter(el=> el.id.toString() === id.toString())
+                const busqueda = filId.filter(el=> el.id === id)
             
             busqueda.length ? res.send(busqueda):res.send({msg:"error"})
 
@@ -123,7 +123,7 @@ const getPost = async (req,res)=>{
             where:{name:type},
             
         })
-        nuevaReceta.addDiet(dietas) 
+       await nuevaReceta.addDiet(dietas) 
   
 
         return res.status(200).send({message:"creada exitosamente"});

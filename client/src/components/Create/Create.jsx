@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {Link , useNavigate}from "react-router-dom"
-import {useDispatch,}  from "react-redux"
+import {useDispatch, useSelector,}  from "react-redux"
 import { postCreate, types } from '../../redux/action'
 import s from '../Create/Create.module.css'
 const Create = () => {
@@ -58,7 +58,8 @@ const validate = () =>{
 // Validates 
 
     const dispatch = useDispatch()
-    // const diet = useSelector(state=> state.typeDiets)
+    const diet = useSelector(state=> state.typeDiets)
+    console.log(diet)
     let navigate = useNavigate();
     const [errors, setErrors] = useState({})
     const [input,setInput]=useState({
@@ -82,7 +83,7 @@ const validate = () =>{
             ...input,
             [e.target.value]:e.target.value
         }))
-         console.log(input)
+        //  console.log(input)
     }
 
     const handleSelect = (e)=>{
@@ -90,7 +91,7 @@ const validate = () =>{
             ...input,
             type:[...input.type,e.target.value]
         })
-         console.log(input)
+        //  console.log(input)
     }
 
 
@@ -262,6 +263,7 @@ const validate = () =>{
 
 
                 <select  onChange={handleSelect} className={s.selet}>
+                  
                     <option value="All">Diets</option>
                     <option name="gluten free"  value="gluten free">Gluten Free</option>
                     <option name="dairy free" value="dairy free">Dairy Free</option>
@@ -291,12 +293,14 @@ const validate = () =>{
            
         </form>
 
-        {input.type.map((el) => (
-        <div key={el}>
-          <span >{el}</span>
-          <button className={s.bt} onClick={() => handleDelete(el)}> x </button>
+        <div className={s.xx}>
+            {input.type.map((el) => (
+            <div key={el} className={s.a}>
+            <span >{el}</span >
+            <button className={s.bt} onClick={() => handleDelete(el)}> x </button>
+            </div>
+        ))}
         </div>
-      ))}
 
     </div>
   )

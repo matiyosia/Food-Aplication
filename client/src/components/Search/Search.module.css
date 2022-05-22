@@ -15,7 +15,10 @@
     background-color: #26A69A;
     color: #fff;
     cursor: pointer;
-    width: fit-content;
+    /* border-radius: 22px; */
+    margin-top: 1rem;
+    padding: 3px;
+   
     
 }
 

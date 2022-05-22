@@ -6,7 +6,22 @@ div .flex{
     place-content: center;
     
 }
+@media screen and (max-width:900px) {
+    div .flex{
+       grid-template-columns: repeat(3,1fr);
+    }
+}
+@media screen and (max-width:760px) {
+    div .flex{
+       grid-template-columns: repeat(2,1fr);
+    }
+}
 
+@media screen and (max-width:450px) {
+    div .flex{
+       grid-template-columns: repeat(1,1fr);
+    }
+}
 .refres{
     display: flex;
     justify-content: center;
@@ -30,7 +45,7 @@ div .flex{
 .options{
     display:flex;
     justify-content: center;
-    background: #000;
+    background: rgba(0, 0, 0, 0.479);
     /* color: black; */
    /* width: 100%; */
 }

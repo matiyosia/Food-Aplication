@@ -13,14 +13,18 @@ export const FILTER_CREAD="FILTER_CREAD"
 
 
 
-export const getRecipes = () => async (dispatch) => {
-	try {
-		const res = await axios.get(`http://localhost:3001/recipe`);
-        // console.log(res)
-		dispatch({type: 'GET_RECIPE', payload: res.data});
-	} catch (err) {
-		console.log(err);
-	}
+export const getRecipes = () => {
+	return async function (dispatch){
+      await fetch(`http://localhost:3001/recipe`)
+        .then(res => res.json())
+        .then(data =>
+             dispatch({
+                type:GET_RECIPE,
+                payload:data
+            })
+        )
+        
+    }
 };
 
 
@@ -35,6 +39,7 @@ export const getByName = (name)=>{
             
         } catch (error) {
             alert("no existe")
+       
             throw(error)
         }
     }
@@ -45,7 +50,7 @@ export const types = ()=>{
   
         return async function (dispatch){
             let json =await axios.get("http://localhost:3001/types")
-              console.log(json)
+            //   console.log(json)
             return dispatch({
                 type:GET_TYPES,
                 payload:json.data
@@ -92,12 +97,17 @@ export const getCreates = (payload)=>{
 export const getDetail = (id) =>  {
 	
         return async function (dispatch){
-            const res = await axios.get(`http://localhost:3001/recipe/${id}`);
+            try {
+                const res = await axios.get(`http://localhost:3001/recipe/${id}`);
             // console.log(res.data)
             return dispatch({
                 type:GET_DIET,
                 payload:res.data
             })
+                
+            } catch (error) {
+                console.log(error)
+            }
         }
         
    

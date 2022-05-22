@@ -73,8 +73,7 @@ const Home = () => {
                     id={r.id}
                     name={r.name}
                     image={r.image}
-                    diets={ r.Diets ? r.Diets.map(e => e.name)
-                        : r.type}
+                    diets={ r.type || r.Diets.map(e => e.name)}
                     score={r.score}
                     /> 
                     

@@ -107,3 +107,17 @@ input{
 background: rgb(184, 174, 174);
 color: black;
 }
+
+.xx{
+    background: white;
+    flex-direction: column;
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+    right: 16rem;
+    top: 4rem;
+    margin: 1rem;
+}
+.a{
+    margin: 4px;
+}

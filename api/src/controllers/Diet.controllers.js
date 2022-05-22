@@ -8,31 +8,16 @@ const getDiets = async (req, res) => {
         // await axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY4}&addRecipeInformation=true&number=100`)
         const dietas = respuesta
      
-        const pedido= dietas.results.map(c=>c.diets)
-        
-
-        const diet2 = []
-        pedido.map(d2 => {
-            for (var i = 0; i < d2.length; i++) {
-                diet2.push(d2[i]);
-            }
-        })
-     
-       
-        diet2.flat()
-
-        diet2.forEach(async(element)=>{
-            if(element){ 
-                await Diet.findOrCreate({ 
-                    where:{
-                        name:element
-                    }
-                })
-            }
-        }) 
-         
-        const allDiet = await Diet.findAll();
-        return allDiet
+        const types = await dietas.results.map((t) => t.diets);
+        const diets = types.flat();
+        const typeDiets = [...new Set(diets), "vegetarian"];
+        typeDiets.forEach( async(d) => {
+         await Diet.findOrCreate({
+            where: { name: d },
+          });
+        });
+        const allDiets = await Diet.findAll();
+        return allDiets
 
     } catch (error) { 
         console.log(error)
@@ -51,6 +36,6 @@ const dietas = async(req,res)=>{
 }
 module.exports = {
     getDiets,
-    dietas
+    dietas 
     
 }

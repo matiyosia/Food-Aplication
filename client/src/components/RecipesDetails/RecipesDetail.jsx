@@ -42,7 +42,7 @@ const RecipesDetail = () => {
 
                 <div className={s.diet}>
                     <h3 className={s.textsss}>Diet Type:</h3> 
-                    { details.Diets ? details.Diets.map(e => <h2 key={e.name} className={s.dishesanddiets}>{e.name}</h2>)
+                    { details.Diets ? details.Diets.map((e,i) => <h2 key={i} className={s.dishesanddiets}>{e.name}</h2>)
                     : <h4 className={s.dishesanddiets}>{details.type}</h4>
                     
                     }
