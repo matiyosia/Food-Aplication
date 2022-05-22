@@ -8,13 +8,15 @@
 .formu input{
     border: none;
     outline: none;
-    padding: 5px 22px;
+    padding: 7px 22px;
 }
 
 .inputButton {
     background-color: #26A69A;
     color: #fff;
-    cursor: pointer
+    cursor: pointer;
+    width: fit-content;
+    
 }
 
 .inputButton:hover {

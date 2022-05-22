@@ -7,3 +7,9 @@
 select{
     margin: 1rem;
 }
+
+.crea button{
+    color: rgb(22, 17, 17);
+    background-color: beige;
+    padding: 8px;
+}

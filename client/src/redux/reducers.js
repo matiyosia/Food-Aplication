@@ -1,4 +1,4 @@
-import { CLEAR_DETAIL, FILTER_ASC, FILTER_MIN, GET_BY_NAME, GET_DIET, GET_RECIPE, GET_TYPES, GET_TYPES_DIET, POST_RECIPE } from "./action";
+import { CLEAR_DETAIL, FILTER_ASC, FILTER_CREAD, FILTER_MIN, GET_BY_NAME, GET_DIET, GET_RECIPE, GET_TYPES, GET_TYPES_DIET, POST_RECIPE } from "./action";
 
 const initialState={
    recipe:[],
@@ -53,10 +53,9 @@ function reducer(state = initialState, action) {
       
        case GET_TYPES_DIET:
 
-        const allRecipes = state.copia;  
-      
-
-        const all = action.payload === "All" ? allRecipes : allRecipes.filter(el=> el.type.includes(action.payload))
+        const allRecipes = state.copia;
+        
+        const all = action.payload === "All" ? allRecipes : allRecipes.filter(el=> el.type?.includes(action.payload))
           console.log(all)
             
            return{
@@ -67,11 +66,13 @@ function reducer(state = initialState, action) {
        
        case GET_TYPES:
         
-      
+    console.log(action.payload)
            return{
                ...state,
                typeDiets:action.payload
            } 
+
+           
 
 
         case FILTER_MIN:
@@ -93,7 +94,7 @@ function reducer(state = initialState, action) {
                 }
 
             case GET_DIET:
-                // console.log(action.payload)
+                 console.log(action.payload)
                 return{
                     ...state,
                     detail:action.payload[0]
@@ -101,15 +102,31 @@ function reducer(state = initialState, action) {
 
            case POST_RECIPE:{
                return{
-                   ...state
+                   ...state,
+                   recipe:action.payload
                }
            } 
+
+          
+           
+             
            case CLEAR_DETAIL:
             return {
                 ...state,
-                detailPost: []
 
             }
+
+
+            case FILTER_CREAD:
+            const creatorFilter = action.payload === 'createdInDb' ? state.copia.filter(el => el.createdInDb) : state.copia.filter(el => !el.createdInDb)
+            return {
+                ...state,
+                recipe: action.payload === 'ALL' ? state.copia : creatorFilter,
+
+            }
+
+          
+              
         default: return state;
     }
 }

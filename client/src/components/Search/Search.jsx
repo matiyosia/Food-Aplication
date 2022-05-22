@@ -30,8 +30,8 @@ const Search = () => {
 
 
   return (
-    <div className={s.formu}>
-     
+    <div className={s.formu} onSubmit={handleSubmit}>
+      <form action="">
         <input type="text"
                 placeholder='Buscar Recetas.. '
                 value={name}
@@ -39,7 +39,8 @@ const Search = () => {
                 autoComplete='off'
                
             />
-            <button onClick={handleSubmit} className={s.inputButton} type="submit" value="">🍳</button>
+            </form>
+            <button className={s.inputButton} type="submit" value="">🍳</button>
     </div>
   )
 }

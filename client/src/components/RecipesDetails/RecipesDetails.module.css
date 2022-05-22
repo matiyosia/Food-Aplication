@@ -1,4 +1,4 @@
-.detailContainer {
+/* .detailContainer {
     background-color: #a9a6aa94;
     margin: 10px;
     padding: 5px;
@@ -96,7 +96,6 @@ h3{
 
 }
 
-/* ///////// */
 
 .backButton{
     background: rgb(34, 31, 31);
@@ -105,4 +104,127 @@ h3{
   position: absolute;
   top: 5px;
  
+} */
+
+/* 77777777777  */
+
+.titlee{
+    display: flex;
+    justify-content: center;
+    font-family: cursive;
+    color: white;
+    text-transform: uppercase;
+}
+
+.contenedor{
+    width:90%;
+    max-width:120rem;
+    margin:0px auto;
+
+}
+
+
+.flexi{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.dish{
+    display: flex;
+    flex-direction: column;
+    padding: 5rem;
+}
+.h{
+    background: rgb(189, 186, 186);
+    padding: 60px;
+    border-radius: 18px;
+}
+.disty{
+    color:white;
+    font-family:cursive;
+    font-weight: 300;
+}
+.diet{
+    flex-direction: column;
+    padding: 2rem;
+     margin-top: 3rem;
+    
+}
+
+ .dishesanddiets{
+    padding: 3px;
+    background: rgb(189, 186, 186);
+    padding: 50px ;
+    border-radius: 18px;
+}
+.textsss{
+    color: white;
+    font-family: cursive;
+    font-weight: 300;
+}
+.score{
+   display:flex;
+   justify-content: space-evenly;
+ 
+   
+}
+
+.t{
+    background: rgb(189, 186, 186);
+    padding: 15px;
+    border-radius: 18px;
+    font-family: cursive;
+    font-weight: 300;
+}
+
+.sum{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:2rem;
+}
+
+.sumar{
+    color: rgb(0, 0, 0);
+   text-align: center;
+    margin: 1rem;
+    font-family: cursive;
+}
+.sm{
+    background: rgb(153, 140, 140);
+    height: 100%;
+    text-align: center;
+    border-radius: 18px;
+    padding: 10px;
+    margin-left: 4rem;
+}
+.carto{
+    background-color: rgb(26, 23, 23);
+    /* height: 130vh; */
+}
+
+.im{
+    width:250px;
+    height:250px;
+    border-radius:18px;
+    margin: 4rem;
+}
+
+.stepp{
+    margin: 1rem;
+    text-align: center;
+}
+
+.are{
+    background: rgb(153, 140, 140);
+    border-radius: 18px;
+    padding: 10px;
+    margin: 2rem;
+}
+.ares{
+    background: rgb(153, 140, 140);
+    border-radius: 18px;
+    padding: 10px;
+    margin: 2rem;
+    width: 50%;
 }

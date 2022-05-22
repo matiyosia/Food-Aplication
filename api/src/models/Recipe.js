@@ -14,10 +14,10 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     image: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
     summary: {
-      type: DataTypes.TEXT,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     score: {
@@ -29,5 +29,13 @@ module.exports = (sequelize) => {
     steps: {
       type: DataTypes.STRING,
     },
+    dishTypes:{
+      type:DataTypes.STRING,
+    },
+    createdInDb: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
+    }
   });
 };

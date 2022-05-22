@@ -6,7 +6,7 @@ import s from '../Home/Home.module.css'
 import Paginacion from '../Paginacion/Paginacion';
 import Search from '../Search/Search';
 import Options from '../Options/Options';
-// import Loading from '../Loading/Loading'
+ import Loading from '../Loading/Loading'
 
 
 const Home = () => {
@@ -16,6 +16,8 @@ const Home = () => {
 
     const recipes = useSelector((state)=> state.recipe)
 
+    
+    //  console.log(recipes)
     //paginacion
     const [currentPage, setCurrentPage] = useState(1);
 	const [couPerPage] = useState(9);
@@ -33,9 +35,7 @@ const Home = () => {
 
 
     useEffect(() => {
-        
            dispatch(getRecipes())
-       
     }, [dispatch])
 
     
@@ -44,24 +44,28 @@ const Home = () => {
         e.preventDefault()
         dispatch(getRecipes())
       }
+
   
 
   return (
     <>
         
        
-        
+   
         <div className={s.options}> 
-            <Options/>
+        <Options/>
+        
         </div>
-        <div className={s.refres}>
+       <div className={s.refres}>
             <button className={s.btn}  onClick={refres}> <p className={s.na}>refresh</p>🍽</button>
             <Search/>
+            
         </div>
-        <div className={s.flex}>
-
         
-        { 
+        <div className={s.flex}>
+        
+        { allpages.length > 0 ? (
+        
              allpages?.map((r)=>{
                 return(
                     
@@ -69,23 +73,24 @@ const Home = () => {
                     id={r.id}
                     name={r.name}
                     image={r.image}
-                    diets={r.type}
+                    diets={ r.Diets ? r.Diets.map(e => e.name)
+                        : r.type}
                     score={r.score}
-                    
                     /> 
                     
                  
                 )
             })
-        }
+        ): <Loading/>} 
 
+            
+        </div> 
     
-        </div>
-       
         <Paginacion recipes={recipes.length}
 				couPerPage={couPerPage}
 				paginado={paginado} />
         </>
+        
   )
 }
 

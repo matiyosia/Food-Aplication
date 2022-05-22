@@ -1,7 +1,7 @@
 import React, { useEffect,} from 'react'
 import { useDispatch} from 'react-redux'
 import s from '../Options/Options.module.css'
-import { getFilterAsc, getFilterMax, getRecipes, getTypeDiet} from '../../redux/action'
+import { getCreates, getFilterAsc, getFilterMax, getRecipes, getTypeDiet} from '../../redux/action'
 import { Link } from 'react-router-dom'
 
 const Options = () => {
@@ -32,14 +32,27 @@ const Options = () => {
         e.preventDefault()
         dispatch(getFilterMax(e.target.value))
     }
+
+    const handleCreate = (e)=>{
+        e.preventDefault()
+        dispatch(getCreates(e.target.value))
+    }
     
   return (
     <div className={s.flexi}>
-        <Link to="/create">
+        <Link to="/create" className={s.crea}>
             <button>Create Recipes</button>
         </Link>
         <div>
         <label htmlFor="">Filter By:</label>
+        <select onChange={handleCreate} >
+                    <option value='ALL'> Total Recipes </option>
+                    <option value='createdInDb'> Recipes Created </option>
+                    <option value='JE'> Recipes Api </option>
+                </select>
+        </div>
+        <div>
+        <label htmlFor="">Filter By A-Z:</label>
             <select  onChange={handleByOrder}>
                 <option >Alphabetical Order</option>
                 <option value="asc"> A-Z </option>
@@ -64,6 +77,7 @@ const Options = () => {
         </div>
 
         <div>
+                <label htmlFor="">Score:</label>
                      <select onChange={sortByScore}>
                         <option>Score:</option>
                         <option value="max">Max Score</option>
