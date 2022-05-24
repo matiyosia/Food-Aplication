@@ -63,7 +63,7 @@ const validate = () =>{
 
     const dispatch = useDispatch()
      const diet = useSelector(state=> state.typeDiets)
-    // console.log(diet)
+    //  console.log(diet)
      let navigate = useNavigate();
     const [errors, setErrors] = useState({})
     const [input,setInput]=useState({
@@ -262,9 +262,9 @@ const validate = () =>{
 
 
                 <select  onChange={handleSelect} className={s.selet}>
-        
+                    <option value={input.type} name="type">Diet..</option>
                     {
-                        diet.map(c=> {
+                        diet?.map(c=> {
                             return(
                              
                                 <option key={c.id} value={c.name}>{c.name}</option>

@@ -73,6 +73,7 @@ const Options = () => {
                 <option value="paleolithic">Paleolithic</option>
                 <option value="primal">Primal</option>
                 <option value="whole 30">Whole 30</option>
+                <option value="vegetarian">Vegetarian</option>
             </select>
         </div>
 

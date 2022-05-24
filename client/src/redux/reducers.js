@@ -116,7 +116,7 @@ function reducer(state = initialState, action) {
         action.payload === "createdInDb"
           ? state.copia.filter((el) => el.createdInDb)
           : state.copia.filter((el) => !el.createdInDb);
-          // console.log(creatorFilter)
+          //  console.log(creatorFilter)
       return {
         ...state,
         recipe: action.payload === "ALL" ? state.copia : creatorFilter,

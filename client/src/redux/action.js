@@ -11,19 +11,6 @@ export const POST_RECIPE = "POST_RECIPE";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
 export const FILTER_CREAD = "FILTER_CREAD";
 
-// export const getRecipes = () => {
-// 	return async function (dispatch){
-//         await fetch(`http://localhost:3001/recipe`)
-//         .then(res => res.json())
-//         .then(data =>
-//              dispatch({
-//                 type:GET_RECIPE,
-//                 payload:data
-//             })
-//         )
-
-//     }
-// };
 
 export const getRecipes = () => {
   return async function (dispatch) {
@@ -38,6 +25,8 @@ export const getRecipes = () => {
     }
   };
 };
+
+
 
 export const getByName = (name) => {
   return async function (dispatch) {
@@ -59,7 +48,7 @@ export const types = () => {
   return async function (dispatch) {
    try {
     let json = await axios.get("http://localhost:3001/types");
-    //   console.log(json)
+      //  console.log(json)
     return dispatch({
       type: GET_TYPES,
       payload: json.data,
@@ -92,7 +81,7 @@ export const getFilterMax = (payload) => {
   };
 };
 export const getCreates = (payload) => {
-  // console.log(payload)
+  //  console.log(payload)
   return {
     type: FILTER_CREAD,
     payload,
