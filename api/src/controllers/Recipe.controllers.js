@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { Diet, Recipe } = require("../db");
  const { YOUR_API_KEY6} = process.env;
- const respuesta = require("../../respuesta.json")
+//  const respuesta = require("../../respuesta.json")
 
 const getApiData = async () => {  
   try {
@@ -10,7 +10,7 @@ const getApiData = async () => {
     );
       // let apiUrl = respuesta;
     const apiData = apiUrl.data.results.map((recipes) => { 
-      return { 
+      return {  
         id: recipes.id.toString(),
         image: recipes.image,
         name: recipes.title.toLowerCase(), 

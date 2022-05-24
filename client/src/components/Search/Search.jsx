@@ -8,7 +8,7 @@ const Search = () => {
     // const recipe= useSelector((state)=> state.recipe)
     const dispatch =  useDispatch()
     const [name,SetName]= useState("")
-
+   
 
     const handleChange = (e)=>{
         e.preventDefault()

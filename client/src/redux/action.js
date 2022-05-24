@@ -37,7 +37,7 @@ export const getByName = (name) => {
         payload: json.data,
       });
     } catch (error) {
-      alert("no existe");
+       alert("no existe");
 
       throw error;
     }

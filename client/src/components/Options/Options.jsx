@@ -4,6 +4,7 @@ import s from '../Options/Options.module.css'
 import { getCreates, getFilterAsc, getFilterMax, getRecipes, getTypeDiet} from '../../redux/action'
 import { Link } from 'react-router-dom'
 
+
 const Options = () => {
 
     const dispatch = useDispatch()
@@ -17,6 +18,7 @@ const Options = () => {
 
     useEffect(() => {
       dispatch(getRecipes())
+      dispatch(getCreates())
     //   dispatch(types())
     }, [dispatch])
 
