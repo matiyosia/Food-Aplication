@@ -11,13 +11,14 @@ import Options from '../Options/Options';
 
 const Home = () => {
 
-    // const[loading,setLoading]=useState(false)
+ 
     const dispatch = useDispatch()
 
     const recipes = useSelector((state)=> state.recipe)
 
     
     //  console.log(recipes)
+
     //paginacion
     const [currentPage, setCurrentPage] = useState(1);
 	const [couPerPage] = useState(9);
