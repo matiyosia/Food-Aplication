@@ -25,7 +25,7 @@ const RecipesDetail = () => {
         
     <div className={s.carto}>
         
-    <Link to="/home"><span className={s.backButton}>Go back to recipes</span></Link>
+    <Link to="/home"><span className={s.backButton}>Back </span></Link>
         
         <div className={s.titlee}>
             {details.name ? <h1>{details.name}</h1> : <h1>Recipe not Found</h1>}
@@ -42,10 +42,12 @@ const RecipesDetail = () => {
 
                 <div className={s.diet}>
                     <h3 className={s.textsss}>Diet Type:</h3> 
+                   
                     { details.Diets ? details.Diets.map((e,i) => <h2 key={i} className={s.dishesanddiets}>{e.name}</h2>)
                     : <h4 className={s.dishesanddiets}>{details.type}</h4>
                     
                     }
+                    
                 </div>
 
                 <div className={s.dish}>
@@ -63,12 +65,12 @@ const RecipesDetail = () => {
         <div className={s.sum}>
            
            <div className={s.sumar}>
-            <h4 >Summary</h4>
+            <h4 className={s.tebla} >Summary</h4>
             <p className={s.sm}>{details.summary ? details.summary.replace(/<[^>]*>/g, '') : "not found"}</p>
 
            </div>
             <div className={s.stepp}>
-                <h4>Steps:</h4>
+                <h4  className={s.tebla}>Steps:</h4>
                 { Array.isArray(details.steps) ? details.steps.map(e => <li className={s.are} key={e.number}>{e.step}</li>)
                         : <li className={s.ares}>{details.steps}</li>
                     }

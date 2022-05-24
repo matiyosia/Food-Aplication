@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import {Link , useNavigate}from "react-router-dom"
-import {useDispatch, useSelector,}  from "react-redux"
+import {Link, useNavigate }from "react-router-dom"
+import {useDispatch, useSelector}  from "react-redux"
 import { postCreate, types } from '../../redux/action'
 import s from '../Create/Create.module.css'
 const Create = () => {
@@ -17,7 +17,7 @@ const validate = () =>{
     } else if(input.name.length < 3) {
         errors.name = 'Minimum 3 letters'
 
-    } else if(input.summary === ""){
+    } else if(!input.summary){
         errors.summary= "summary must be complete";
 
     } else if(input.summary.length < 20){
@@ -32,7 +32,7 @@ const validate = () =>{
     }else if(input.dishTypes === ""){
         errors.dishTypes = "required field"
 
-    }else if(!input.type){
+    }else if(input.type.length === 0){
         errors.type = "required field"
 
     }else if(!input.score){
@@ -41,9 +41,13 @@ const validate = () =>{
         errors.healthyScore ="required field"
     }
    
-    if (!input.image) {
+    if (!input.image.includes("https")) {
         errors.image = 'Please insert an image type URL'
     } 
+
+    if(!input.steps){
+        errors.steps = "required field"
+    }
 
    
     
@@ -58,9 +62,9 @@ const validate = () =>{
 // Validates 
 
     const dispatch = useDispatch()
-    const diet = useSelector(state=> state.typeDiets)
-    console.log(diet)
-    let navigate = useNavigate();
+     const diet = useSelector(state=> state.typeDiets)
+    // console.log(diet)
+     let navigate = useNavigate();
     const [errors, setErrors] = useState({})
     const [input,setInput]=useState({
         name: '',
@@ -110,7 +114,6 @@ const validate = () =>{
           alert('The recipe is not created, fill in the required fields!')
         }else{
             dispatch(postCreate(input))
-            navigate('/home')
             alert("recipe created successfully")
             setInput({
                 name: '',
@@ -122,15 +125,11 @@ const validate = () =>{
                 dishTypes:'',
                 type: [],
             })
+             navigate('/home')
         }
           
-       
-                
-            
-            
-              
-            
         
+                
       
     }
 
@@ -263,17 +262,16 @@ const validate = () =>{
 
 
                 <select  onChange={handleSelect} className={s.selet}>
-                  
-                    <option value="All">Diets</option>
-                    <option name="gluten free"  value="gluten free">Gluten Free</option>
-                    <option name="dairy free" value="dairy free">Dairy Free</option>
-                    <option name="vegan" value="vegan">Vegan</option>
-                    <option name="lacto ovo vegetarian" value="lacto ovo vegetarian">Ovo-Vegetarian</option>
-                    <option name="fodmap friendly" value="fodmap friendly">Formap Friendly</option>
-                    <option name="pescatarian" value="pescatarian">Pescatarian</option>
-                    <option name="paleolithic" value="paleolithic">Paleolithic</option>
-                    <option name="primal" value="primal">Primal</option>
-                    <option name="whole 30" value="whole 30">Whole 30</option>
+        
+                    {
+                        diet.map(c=> {
+                            return(
+                             
+                                <option key={c.id} value={c.name}>{c.name}</option>
+                            )
+                        })
+                    }
+                 
                 </select>  
             
                     

@@ -48,7 +48,7 @@ const Options = () => {
         <select onChange={handleCreate} >
                     <option value='ALL'> Total Recipes </option>
                     <option value='createdInDb'> Recipes Created </option>
-                    <option value='JE'> Recipes Api </option>
+                    <option value='JE'> Recipes Api </option> 
                 </select>
         </div>
         <div>
@@ -61,7 +61,7 @@ const Options = () => {
         </div>
 
         <div>
-            <label htmlFor="">Diest Types:</label>
+            <label htmlFor="">Diet Types:</label>
             <select  onChange={handlefilter}>
                 <option value="All">types..</option>
                 <option value="gluten free">Gluten Free</option>

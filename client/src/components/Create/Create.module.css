@@ -36,9 +36,13 @@ label{
    display: flex;
    justify-content: center;
 }
+textarea{
+    font-family: Arial, Helvetica, sans-serif;
 
+}
 .error{
     color:rgb(255, 238, 0);
+    text-align: center;
     
 }
 .selet{

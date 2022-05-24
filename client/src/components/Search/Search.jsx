@@ -8,11 +8,12 @@ const Search = () => {
     // const recipe= useSelector((state)=> state.recipe)
     const dispatch =  useDispatch()
     const [name,SetName]= useState("")
-    
+
 
     const handleChange = (e)=>{
         e.preventDefault()
         SetName(e.target.value)
+     
       
     }
 
@@ -31,6 +32,7 @@ const Search = () => {
 
   return (
     <div className={s.formu} onSubmit={handleSubmit}>
+   
       <form action="">
         <input type="text"
                 placeholder='Buscar Recetas.. '
@@ -40,7 +42,8 @@ const Search = () => {
                
             />
             </form>
-            <button className={s.inputButton} type="submit" value="">🍳</button>
+           
+            <button onClick={handleSubmit} className={s.inputButton} type="submit" value="">🍳</button>
     </div>
   )
 }
