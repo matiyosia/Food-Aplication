@@ -33,24 +33,20 @@ const validate = () =>{
         errors.dishTypes = "required field"
 
     }else if(input.type.length === 0){
-        errors.type = "required field"
+        errors.type = "it has to be a different diet"
 
     }else if(!input.score){
         errors.score = "required field"
     }else if(!input.healthyScore){
         errors.healthyScore ="required field"
-    }
-   
-    if (!input.image.includes("https")) {
+    }else if (!input.image.includes("https")) {
         errors.image = 'Please insert an image type URL'
-    } 
-
-    if(!input.steps){
+    }else if(!input.steps){
         errors.steps = "required field"
+    }else if(input.type !== input.type){
+        errors.type= "it has to be a different diet"
     }
-
    
-    
    
     return errors;
 }

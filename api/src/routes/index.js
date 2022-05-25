@@ -11,5 +11,6 @@ const router = Router();
 router.use("/recipe",Recipes)
 router.use("/types",Diet)
 
+
 module.exports = router;
 

@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { Diet, Recipe } = require("../db");
  const { YOUR_API_KEY6} = process.env;
-//  const respuesta = require("../../respuesta.json")
+  // const respuesta = require("../../respuesta.json")
 
 const getApiData = async () => {  
   try {
@@ -87,7 +87,7 @@ const getIdRecipe = async (req, res) => {
 };
 
 const getPost = async (req, res) => {
-  const { name, summary, score, healthyScore, steps, type, image,createdInDb, dishTypes } =
+  const { name, summary, score, healthyScore, steps, type, image, dishTypes } =
     req.body;
   try {
     const nuevaReceta = await Recipe.create({
@@ -99,7 +99,7 @@ const getPost = async (req, res) => {
       image,
       dishTypes,
       type,
-      createdInDb
+      
     });
 
     const dietas = await Diet.findAll({
@@ -113,6 +113,10 @@ const getPost = async (req, res) => {
   }
 };
 
+
+
+
+
 module.exports = {
   getApiData,
   getByName,
@@ -120,4 +124,5 @@ module.exports = {
   getPost,
   dbData,
   allRecipes,
+  
 };
