@@ -1,6 +1,7 @@
 import {
   CLEAN_DATA,
   CLEAR_DETAIL,
+  DELETE,
   FILTER_ASC,
   FILTER_CREAD,
   FILTER_MIN,
@@ -18,6 +19,7 @@ const initialState = {
   typeDiets:[],
   detail:{},
   detailPost: [],
+  delete:[]
 };
 
 function reducer(state = initialState, action) {
@@ -28,6 +30,12 @@ function reducer(state = initialState, action) {
         recipe: action.payload,
         copia: action.payload,
       };
+
+     case DELETE:
+       return{
+         ...state,
+         delete:action.payload
+       } 
 
     case GET_BY_NAME:
       return {

@@ -5,15 +5,13 @@ import { Link } from 'react-router-dom'
 const Card = ({id,name,diets,image,score}) => {
 
 
-
-    
-  
     
 
   return (
     <div className={s.grid}>
      
         <div className={s.conteiner}>
+          
         <Link  to={`/recipe/${id}`}>
             <p className={s.name}>{name}</p>
         </Link>

@@ -1,12 +1,12 @@
 const axios = require("axios");
 const { Diet, Recipe } = require("../db");
-  const { YOUR_API_KEY14} = process.env;
+  const { YOUR_API_KEY3} = process.env;
   // const respuesta = require("../../respuesta.json") 
 
 const getApiData = async () => {  
   try {
     const apiUrl = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY14}&addRecipeInformation=true&number=100`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY3}&addRecipeInformation=true&number=100`
     );
       //  let apiUrl = respuesta;
     const apiData = apiUrl.data.results.map((recipes) => { 
@@ -114,7 +114,19 @@ const getPost = async (req, res) => {
 };
 
 
-
+const deleted = async(req,res)=>{
+  let {id}=req.params
+  await Recipe.destroy({
+    where: {
+     id: id
+    }
+   }).then(count => {
+    if (!count) {
+     return res.status(404).send({error: 'No user'});
+    }
+    res.status(204).send();
+   });
+}
 
 
 module.exports = {
@@ -124,5 +136,6 @@ module.exports = {
   getPost,
   dbData,
   allRecipes,
+  deleted
   
 };

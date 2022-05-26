@@ -11,6 +11,7 @@ export const POST_RECIPE = "POST_RECIPE";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
 export const FILTER_CREAD = "FILTER_CREAD";
 export const CLEAN_DATA = "CLEAN_DATA";
+export const DELETE = "DELETE";
 
 
 
@@ -127,3 +128,17 @@ export const postCreate = (payload) => {
     }
   };
 };
+
+
+export const Remove = (id)=>{
+  return (dispatch) => {
+     axios.delete(`http://localhost:3001/recipe/delete/${id}`).then((remo) => {
+        dispatch({
+          type:DELETE,
+          payload: remo.id
+        });
+    }).catch(error=>{
+      console.log(error)
+    })
+}
+}

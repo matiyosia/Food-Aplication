@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {  Link, useParams } from 'react-router-dom'
-import { cleanData, getDetail } from '../../redux/action'
+import { cleanData, getDetail, Remove } from '../../redux/action'
 import s from '../RecipesDetails/RecipesDetails.module.css'
-
+import { useNavigate } from 'react-router-dom'
 const RecipesDetail = () => {
    const {id}=useParams()
     const dispatch = useDispatch()
- 
+ let navigate= useNavigate()
     const details = useSelector((state)=> state.detail)
     // console.log(details)
     
@@ -16,7 +16,17 @@ const RecipesDetail = () => {
      return dispatch(cleanData(id))
     }, [dispatch,id])
 
+   
+
+
+    function handle (e){
+    e.preventDefault(e)
+    dispatch(Remove(id))
+    navigate("/home")
+        return dispatch(cleanData(id))
+    }
     
+  
 
     
   return (
@@ -33,7 +43,7 @@ const RecipesDetail = () => {
         
 
         <div className={s.flexi}>
-
+                        <button className={s.crux} onClick={handle}>Eliminar</button>
                 <div>
                     <img className={s.im} src={details.image ? details.image : 
                     'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'} alt="Pic not found"/>
