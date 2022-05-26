@@ -5,39 +5,40 @@ import { getCreates, getFilterAsc, getFilterMax, getRecipes, getTypeDiet} from '
 import { Link } from 'react-router-dom'
 
 
-const Options = () => {
+const Options = ({set}) => {
 
     const dispatch = useDispatch()
-   
+
    
 
     const handleByOrder =(e)=>{
         e.preventDefault()
         dispatch(getFilterAsc(e.target.value))
+        set(1)
     }
 
     useEffect(() => {
       dispatch(getRecipes())
-      dispatch(getCreates())
-    //   dispatch(types())
     }, [dispatch])
 
 
     const handlefilter = (e)=>{
         e.preventDefault()
         dispatch( getTypeDiet(e.target.value))
-       
+       set(1)
     }
     
 
     const sortByScore = (e)=>{
         e.preventDefault()
         dispatch(getFilterMax(e.target.value))
+        set(1)
     }
 
     const handleCreate = (e)=>{
         e.preventDefault()
         dispatch(getCreates(e.target.value))
+      
     }
     
   return (
@@ -47,7 +48,7 @@ const Options = () => {
         </Link>
         <div>
         <label htmlFor="">Filter By:</label>
-        <select onChange={handleCreate} >
+        <select onChange={(e)=> handleCreate(e)} >
                     <option value='ALL'> Total Recipes </option>
                     <option value='createdInDb'> Recipes Created </option>
                     <option value='JE'> Recipes Api </option> 

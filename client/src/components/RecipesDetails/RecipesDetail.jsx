@@ -1,24 +1,23 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {  Link, useParams } from 'react-router-dom'
-import { getDetail } from '../../redux/action'
+import { cleanData, getDetail } from '../../redux/action'
 import s from '../RecipesDetails/RecipesDetails.module.css'
 
 const RecipesDetail = () => {
    const {id}=useParams()
     const dispatch = useDispatch()
+ 
     const details = useSelector((state)=> state.detail)
     // console.log(details)
+    
     useEffect(() => {
       dispatch(getDetail(id))
-      
+     return dispatch(cleanData(id))
     }, [dispatch,id])
 
     
-    // function createMarkup() {
-    //     return {
-    //        __html: details.summary  };
-    //  }; 
+
     
   return (
     <div className={s.contenedor}>

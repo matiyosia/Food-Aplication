@@ -10,6 +10,8 @@ export const GET_DIET = "GET_DIET";
 export const POST_RECIPE = "POST_RECIPE";
 export const CLEAR_DETAIL = "CLEAR_DETAIL";
 export const FILTER_CREAD = "FILTER_CREAD";
+export const CLEAN_DATA = "CLEAN_DATA";
+
 
 
 export const getRecipes = () => {
@@ -26,7 +28,14 @@ export const getRecipes = () => {
   };
 };
 
-
+export function cleanData() {
+  return function (dispatch) {
+      dispatch({
+          type: CLEAN_DATA,
+          payload: {},
+      })
+  }
+}
 
 export const getByName = (name) => {
   return async function (dispatch) {
@@ -37,9 +46,10 @@ export const getByName = (name) => {
         payload: json.data,
       });
     } catch (error) {
-        alert("no existe");
-
-      throw error;
+        dispatch({
+          type: GET_BY_NAME,
+          payload: [],
+      })
     }
   };
 };
@@ -81,10 +91,10 @@ export const getFilterMax = (payload) => {
   };
 };
 export const getCreates = (payload) => {
-  //  console.log(payload)
+    // console.log(payload)
   return {
     type: FILTER_CREAD,
-    payload,
+    payload:payload,
   };
 };
 

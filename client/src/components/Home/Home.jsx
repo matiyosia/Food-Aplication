@@ -7,6 +7,7 @@ import Paginacion from '../Paginacion/Paginacion';
 import Search from '../Search/Search';
 import Options from '../Options/Options';
  import Loading from '../Loading/Loading'
+ import NotFound from "../NotFound/NotFound"
 
 
 const Home = () => {
@@ -15,8 +16,9 @@ const Home = () => {
     const dispatch = useDispatch()
 
     const recipes = useSelector((state)=> state.recipe)
-
+    let [loading,setLoading]= useState(true);
     
+   
     //  console.log(recipes)
 
     //paginacion
@@ -31,7 +33,9 @@ const Home = () => {
 		setCurrentPage(pageNumber);
 	};
 
-
+    if(allpages.length > 0 && loading){
+        setLoading(false);
+    }
 
 
 
@@ -43,7 +47,7 @@ const Home = () => {
 
     const refres=(e)=>{
         e.preventDefault()
-        dispatch(getRecipes())
+        window.location.reload()
       }
 
   
@@ -54,7 +58,7 @@ const Home = () => {
        
    
         <div className={s.options}> 
-        <Options/>
+        <Options set={setCurrentPage}/>
         
         </div>
        <div className={s.refres}>
@@ -65,8 +69,8 @@ const Home = () => {
         
         <div className={s.flex}>
         
-        { allpages.length > 0 ? (
-        
+        { allpages.length > 0 && !loading ? (
+           
              allpages?.map((r)=>{
                 return(
                     
@@ -74,14 +78,20 @@ const Home = () => {
                     id={r.id}
                     name={r.name}
                     image={r.image}
-                    diets={ r.type || r.Diets.map(e => e.name)}
+                    diets={ r.type ||  r.Diets.map(e => e.name) }
                     score={r.score}
                     /> 
                     
                  
                 )
             })
-        ): <Loading/>} 
+        ):  !allpages.length > 0 && loading ? (
+            <Loading/>
+        ) : (
+            <NotFound/>
+        )
+           
+        } 
 
             
         </div> 

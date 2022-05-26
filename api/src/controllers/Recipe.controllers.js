@@ -1,16 +1,16 @@
 const axios = require("axios");
 const { Diet, Recipe } = require("../db");
- const { YOUR_API_KEY6} = process.env;
-  // const respuesta = require("../../respuesta.json")
+  const { YOUR_API_KEY14} = process.env;
+  // const respuesta = require("../../respuesta.json") 
 
 const getApiData = async () => {  
   try {
     const apiUrl = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY6}&addRecipeInformation=true&number=100`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY14}&addRecipeInformation=true&number=100`
     );
-      // let apiUrl = respuesta;
+      //  let apiUrl = respuesta;
     const apiData = apiUrl.data.results.map((recipes) => { 
-      return {  
+      return {   
         id: recipes.id.toString(),
         image: recipes.image,
         name: recipes.title.toLowerCase(), 
@@ -21,7 +21,7 @@ const getApiData = async () => {
         dishTypes: recipes.dishTypes,
         steps: recipes.analyzedInstructions[0]?.steps.map((s) => {
           return {
-            number: s.number,
+            number: s.number, 
             step: s.step,
           };
         }),
@@ -45,19 +45,19 @@ const dbData = async () => {
 
 const allRecipes = async () => {
   const api = await getApiData();
-  const db = await dbData();
+  const db = await dbData();  
   const all = api.concat(db);
   return all;
 };
 
-const getByName = async (req, res) => {
+const getByName = async (req, res) => { 
   try {
     const { name } = req.query;
 
     const recipe = await allRecipes();
     if (name) {
       const fil = recipe.filter((el) =>
-        el.name.toLowerCase().includes(name.toString().toLowerCase())
+        el.name.toLowerCase().includes(name.toLowerCase())
       );
       fil.length ? res.send(fil) : res.status(404).send({ msg: "not found" });
     } else {
@@ -81,7 +81,7 @@ const getIdRecipe = async (req, res) => {
     } else {
       res.send({ msg: "Should enter a valid ID" });
     }
-  } catch (error) {
+  } catch (error) { 
     res.status(404).send({ msg: "Should enter a valid ID" });
   }
 };
@@ -97,7 +97,7 @@ const getPost = async (req, res) => {
       healthyScore,
       steps,
       image,
-      dishTypes,
+      dishTypes, 
       type,
       
     });
@@ -105,10 +105,10 @@ const getPost = async (req, res) => {
     const dietas = await Diet.findAll({
       where: { name: type },
     });
-    await nuevaReceta.addDiet(dietas);
+    await nuevaReceta.addDiet(dietas); 
 
     return res.status(200).send({ msg: "successfully created" });
-  } catch (e) {
+  } catch (e) { 
     console.log(e);
   }
 };

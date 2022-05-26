@@ -3,14 +3,17 @@ import { useDispatch } from 'react-redux'
 import { getByName } from '../../redux/action'
 import s from '../Search/Search.module.css'
 
+
+
 const Search = () => {
 
+  
     // const recipe= useSelector((state)=> state.recipe)
     const dispatch =  useDispatch()
     const [name,SetName]= useState("")
-  
-  
    
+
+      
 
     const handleChange = (e)=>{
         e.preventDefault()
@@ -21,16 +24,13 @@ const Search = () => {
 
     const handleSubmit = (e)=>{
         e.preventDefault()
+
           dispatch(getByName(name));
           SetName('');
-
-        
-        
-
-        
+          
       }
     
-    
+   
   
 
 
@@ -46,7 +46,7 @@ const Search = () => {
                
             />
             </form>
-            
+         
            
             <button onClick={handleSubmit} className={s.inputButton} type="submit" value="">🍳</button>
     </div>

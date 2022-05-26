@@ -4,7 +4,7 @@ div .flex{
     gap: 1rem;
     place-items: center;
     place-content: center;
-    
+
 }
 @media screen and (max-width:900px) {
     div .flex{
@@ -58,3 +58,4 @@ div .flex{
 .parrafe{
     font-size: 17px;
 }
+

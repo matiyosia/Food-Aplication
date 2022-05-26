@@ -43,9 +43,10 @@ const validate = () =>{
         errors.image = 'Please insert an image type URL'
     }else if(!input.steps){
         errors.steps = "required field"
-    }else if(input.type !== input.type){
-        errors.type= "it has to be a different diet"
     }
+    // }else if(input.type.length !== input.type.length){
+    //     errors.type= "it has to be a different diet"
+    // }
    
    
     return errors;
@@ -87,10 +88,19 @@ const validate = () =>{
     }
 
     const handleSelect = (e)=>{
-        setInput({
+
+        if(input.type.includes(e.target.value)){
+            return 'Diet Type exists'
+        }else{
+            setInput({
+                ...input,
+                type:[...input.type,e.target.value]
+            })
+        }
+        setErrors(validate({
             ...input,
-            type:[...input.type,e.target.value]
-        })
+            [e.target.value]:e.target.value
+        }))
         //  console.log(input)
     }
 

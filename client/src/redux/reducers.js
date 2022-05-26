@@ -1,4 +1,5 @@
 import {
+  CLEAN_DATA,
   CLEAR_DETAIL,
   FILTER_ASC,
   FILTER_CREAD,
@@ -14,8 +15,8 @@ import {
 const initialState = {
   recipe: [],
   copia: [],
-  typeDiets: [],
-  detail: [],
+  typeDiets:[],
+  detail:{},
   detailPost: [],
 };
 
@@ -71,6 +72,13 @@ function reducer(state = initialState, action) {
         typeDiets: action.payload,
       };
 
+      case CLEAN_DATA:
+            return {
+                ...state,
+                detail: action.payload,
+                
+            };
+
     case FILTER_MIN:
       const scoreSorted = state.recipe ? state.recipe : state.recipe;
       let orderByScore =
@@ -114,12 +122,12 @@ function reducer(state = initialState, action) {
     case FILTER_CREAD:
       const creatorFilter =
         action.payload === "createdInDb"
-          ? state.copia.filter((el) => el.createdInDb)
-          : state.copia.filter((el) => !el.createdInDb);
+          ? state.copia?.filter((el) => el.createdInDb)
+          : state.copia?.filter((el) => !el.createdInDb);
   
       return {
         ...state,
-        recipe: action.payload === "ALL" ? state.copia : creatorFilter,
+        recipe: action.payload === "ALL" ? state.copia: creatorFilter,
       };
 
     default:
