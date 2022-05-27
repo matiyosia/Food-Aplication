@@ -7,7 +7,7 @@
 }
 
 .fondoform{
-    background: rgb(34, 31, 31);
+    background: rgba(24, 22, 22, 0.897);
     padding: 3rem 20rem;
     border-radius: 18px;
     margin: 6px;
@@ -17,7 +17,7 @@
     background: rgb(236, 218, 218);
    padding: 10px 30px;
    position: absolute;
-   left: 10rem;
+   left: 19rem;
    top: 2rem;
    text-align: center;
    margin: 1px;
@@ -75,6 +75,7 @@ label{
     padding: 5px;
     display: flex;
     flex-direction: column;
+
 }
 
 .lis{
