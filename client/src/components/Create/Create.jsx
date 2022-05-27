@@ -252,7 +252,7 @@ const validate = () =>{
 
                 <label htmlFor="">Step by Step</label>
             <div>
-                <textarea  onChange={handleChange} type="text" name="steps" id="" cols="30" rows="10" value={input.steps}>
+                <textarea  className={s.textar} onChange={handleChange} type="text" name="steps" value={input.steps}>
 
                 </textarea>
                     
@@ -263,17 +263,20 @@ const validate = () =>{
                     }
 
             </div>
+            
 
             <div className={s.op}>
 
 
                 <select  onChange={handleSelect} className={s.selet}>
                     <option value={input.type} name="type">Diet..</option>
+                     {/* <option name="" value={input.autor}>Autor</option> */}
                     {
                         diet?.map(c=> {
                             return(
                              
                                 <option key={c.id} value={c.name}>{c.name}</option>
+                                
                             )
                         })
                     }

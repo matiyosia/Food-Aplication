@@ -3,6 +3,7 @@ import { useDispatch} from 'react-redux'
 import s from '../Options/Options.module.css'
 import { getCreates, getFilterAsc, getFilterMax, getRecipes, getTypeDiet} from '../../redux/action'
 import { Link } from 'react-router-dom'
+import plato from "../../images/plato.gif"
 
 
 const Options = ({set}) => {
@@ -38,7 +39,7 @@ const Options = ({set}) => {
     const handleCreate = (e)=>{
         e.preventDefault()
         dispatch(getCreates(e.target.value))
-      
+        set(1)
     }
     
   return (
@@ -46,6 +47,9 @@ const Options = ({set}) => {
         <Link to="/create" className={s.crea}>
             <button>Create Recipes</button>
         </Link>
+        <div>
+            <img className={s.imgs} src={plato} alt="" />
+        </div>
         <div>
         <label htmlFor="">Filter By:</label>
         <select onChange={(e)=> handleCreate(e)} >

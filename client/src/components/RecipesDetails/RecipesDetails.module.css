@@ -4,6 +4,7 @@
     font-family: cursive;
     color: white;
     text-transform: uppercase;
+    text-shadow: 4px 1px 0px rgba(213,158,0,0.42);
 }
 
 .contenedor{
@@ -28,8 +29,9 @@
 }
 .h{
     background: rgb(189, 186, 186);
-    padding: 60px;
+    padding: 10px;
     border-radius: 18px;
+    font-family: cursive;
 }
 .disty{
     color:white;
@@ -50,6 +52,7 @@
          flex-direction:column;
          font-size: 18px;
         margin: 2px;
+        font-family: cursive;
    
 }
 
@@ -95,7 +98,6 @@
 }
 .carto{
     background-color: rgb(26, 23, 23);
-    /* height: 130vh; */
     margin: 1rem;
 }
 
@@ -116,6 +118,7 @@
     border-radius: 18px;
     padding: 10px;
     margin: 2rem;
+    font-family: cursive;
 }
 .ares{
     background: rgb(153, 140, 140);
@@ -148,4 +151,5 @@
     position: absolute;
     right: 8rem;
    
-}
+} 
+

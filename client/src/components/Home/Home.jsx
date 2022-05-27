@@ -22,10 +22,11 @@ const Home = () => {
     //  console.log(recipes)
 
     //paginacion
+    
     const [currentPage, setCurrentPage] = useState(1);
 	const [couPerPage] = useState(9);
-	const indexlast = currentPage * couPerPage;
-	const indexFirst = indexlast - couPerPage;
+	const indexlast = currentPage * couPerPage; // devuelve 9
+	const indexFirst = indexlast - couPerPage; // 0
 	const allpages = recipes.slice(indexFirst, indexlast);
   
 
@@ -55,7 +56,7 @@ const Home = () => {
   return (
     <>
         
-       
+        
    
         <div className={s.options}> 
         <Options set={setCurrentPage}/>
@@ -66,7 +67,9 @@ const Home = () => {
             <Search/>
             
         </div>
-        
+        <Paginacion recipes={recipes.length}
+				couPerPage={couPerPage}
+				paginado={paginado} />
         <div className={s.flex}>
         
         { allpages.length > 0 && !loading ? (
@@ -96,9 +99,7 @@ const Home = () => {
             
         </div> 
     
-        <Paginacion recipes={recipes.length}
-				couPerPage={couPerPage}
-				paginado={paginado} />
+        
         </>
         
   )

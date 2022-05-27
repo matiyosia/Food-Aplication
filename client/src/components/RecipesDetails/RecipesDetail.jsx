@@ -9,7 +9,7 @@ const RecipesDetail = () => {
     const dispatch = useDispatch()
  let navigate= useNavigate()
     const details = useSelector((state)=> state.detail)
-    // console.log(details)
+    //  console.log(details)
     
     useEffect(() => {
       dispatch(getDetail(id))
@@ -22,6 +22,7 @@ const RecipesDetail = () => {
     function handle (e){
     e.preventDefault(e)
     dispatch(Remove(id))
+    alert("successfully deleted")
     navigate("/home")
         return dispatch(cleanData(id))
     }
@@ -43,7 +44,7 @@ const RecipesDetail = () => {
         
 
         <div className={s.flexi}>
-                        <button className={s.crux} onClick={handle}>Eliminar</button>
+                  {details.Diets ?<button className={s.crux} onClick={(e)=> handle(e)}>Remove</button> : ""}
                 <div>
                     <img className={s.im} src={details.image ? details.image : 
                     'https://images.unsplash.com/photo-1635321593217-40050ad13c74?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1748&q=80'} alt="Pic not found"/>
@@ -67,7 +68,7 @@ const RecipesDetail = () => {
 
 
         <div className={s.score}>
-            <h3 className={s.t}>Score:{details.score}</h3>
+            <h3 className={s.t}>Score:{details.score} ✔</h3>
             <h3 className={s.t}><span>Healthiness points:</span>{details.healthyScore || details.healhyScore} ✔</h3>
         </div>
 

@@ -1,12 +1,12 @@
 const axios = require("axios");
 const { Diet, Recipe } = require("../db");
-   const { YOUR_API_KEY3 } = process.env; 
+   const { YOUR_API_KEY5 } = process.env; 
   //  const respuesta =  require("../../respuesta.json") 
 
 const getDiets = async (req, res) => { 
   try { 
     const dietas = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY3
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${YOUR_API_KEY5
     }&addRecipeInformation=true&number=100`
     );
       // let dietas = respuesta;
